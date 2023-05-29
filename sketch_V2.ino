@@ -2,6 +2,7 @@
 #include <BH1750.h>
 #include <DHT.h>
 
+#define SENSOR_PIN A0
 #define DHTPIN D4     // Pin donde está conectado el sensor
 #define DHTTYPE DHT11   // DHT 11
 DHT dht(DHTPIN, DHTTYPE);
@@ -40,16 +41,20 @@ void loop() {
   // Calcula el índice de calor en Celsius
   float hic = dht.computeHeatIndex(t, h, false);
 
-  Serial.print("Humidity: ");
+  int sensorValue = analogRead(SENSOR_PIN); // Lee el valor del sensor
+  
+  Serial.print("\nGround humidity: ");
+  Serial.print(sensorValue);
+  Serial.print("\nHumidity: ");
   Serial.print(h);
   Serial.print(" %\t");
-  Serial.print("Temperature: ");
+  Serial.print("\nTemperature: ");
   Serial.print(t);
   Serial.print(" *C ");
-  Serial.print("Heat index: ");
+  Serial.print("\nHeat index: ");
   Serial.print(hic);
-  Serial.println(" *C");
-  Serial.print("Light: ");
+  Serial.print(" *C");
+  Serial.print("\nLight: ");
   Serial.print(lux);
   Serial.println(" lx");
   delay(2000);

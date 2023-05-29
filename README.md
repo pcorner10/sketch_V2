@@ -12,6 +12,12 @@ Este proyecto utiliza un microcontrolador ESP8266 para monitorear las condicione
 
 El ESP8266 recoge datos de temperatura, humedad y luz de los sensores DHT11 y BH1750, respectivamente. Estos datos se envían a Azure IoT Hub a intervalos regulares.
 
+### El sensor de humedad en suelo
+- 0 ~300 dry soil
+- 300~700 humid soil
+- 700~950 in water 
+
+
 ## Configuración
 
 Para utilizar este proyecto, necesitarás:
